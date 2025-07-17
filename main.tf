@@ -7,3 +7,12 @@ resource "azurerm_resource_group" "rg" {
 name     = "bs-basic-pipeline"
 location = "westus2"
 }
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "my-rg-<your-name>"
+    storage_account_name = "mytfstateacct<your-name>"
+    container_name       = "bs-tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
