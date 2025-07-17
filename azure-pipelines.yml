@@ -1,0 +1,31 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  TF_VERSION: '1.6.0'
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: $(TF_VERSION)
+
+# ✅ Authenticate to Azure using the service connection
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'DataCouch (be10b0be-f303-4b30-8d4c-99583be2340e)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Init and apply
+      terraform init
+      terraform plan -out=tfplan
+      terraform apply -auto-approve tfplan
