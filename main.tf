@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg1" {
-name     = "bs-basic-pipeline"
+name     = "bs-basic-pipeline1"
 location = "westus2"
 }
 
