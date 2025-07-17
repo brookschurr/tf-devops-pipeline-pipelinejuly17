@@ -21,7 +21,7 @@ steps:
 # ✅ Authenticate to Azure using the service connection
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'DataCouch (be10b0be-f303-4b30-8d4c-99583be2340e)'
+    azureSubscription: 'DataCouch (d52a6d4f-8a6b-4e23-a011-dbb0c8d7eddc)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
