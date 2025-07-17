@@ -10,8 +10,8 @@ location = "westus2"
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "my-rg-<your-name>"
-    storage_account_name = "mytfstateacct<your-name>"
+    resource_group_name  = "bs-state-rg-pipeline"
+    storage_account_name = "bsstatesapipline"
     container_name       = "bs-tfstate"
     key                  = "terraform.tfstate"
   }
